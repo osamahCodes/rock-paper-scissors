@@ -10,41 +10,61 @@ function computerPlay(){
 
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+function playRound(computerSelection) {
+    let playerSelection = this.classList.value;
+    round.textContent = (parseInt(round.textContent)+1).toString();
     if (playerSelection===computerSelection) {
-        return `Tie Game! both players played ${playerSelection}`;
+        return;
+        // return `Tie Game! both players played ${playerSelection}`;
     }else if (playerSelection==='rock') {
         if(computerSelection==='paper'){
-            return `You Lose! ${computerSelection} beats ${playerSelection}`
+            computerScore.textContent = (parseInt(computerScore.textContent)+1).toString();
+            return;
+            // return `You Lose! ${computerSelection} beats ${playerSelection}`
         }else{
-            return `You Win! ${playerSelection} beats ${computerSelection}`
+            playerScore.textContent = (parseInt(playerScore.textContent)+1).toString();
+            return;
+            // return `You Win! ${playerSelection} beats ${computerSelection}`
         }
     }
     else if (playerSelection==='paper') {
         if(computerSelection==='scissors'){
-            return `You Lose! ${computerSelection} beats ${playerSelection}`
+            computerScore.textContent = (parseInt(computerScore.textContent)+1).toString();
+            return;
+            // return `You Lose! ${computerSelection} beats ${playerSelection}`
         }else{
-            return `You Win! ${playerSelection} beats ${computerSelection}`
+            playerScore.textContent = (parseInt(playerScore.textContent)+1).toString();
+            return;
+            // return `You Win! ${playerSelection} beats ${computerSelection}`
         }
     }
     else{
         if(computerSelection==='rock'){
-            return `You Lose! ${computerSelection} beats ${playerSelection}`
+            computerScore.textContent = (parseInt(computerScore.textContent)+1).toString();
+            return;
+            // return `You Lose! ${computerSelection} beats ${playerSelection}`
         }else{
-            return `You Win! ${playerSelection} beats ${computerSelection}`
+            playerScore.textContent = (parseInt(playerScore.textContent)+1).toString();
+            return;
+            // return `You Win! ${playerSelection} beats ${computerSelection}`
         }
         
     }
-  }
-
-function game(){
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("rock, paper, or scissors?");
-        let computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
-    }
 }
 
-  
+function game(){
+    const buttons = document.querySelectorAll('button');
+    const playerScore = document.querySelector('player');
+    const computerScore = document.querySelector('computer');
+    const round = document.querySelector('round');
+    buttons.forEach(button => button.addEventListener('click', playRound(computerPlay())))
+    // for (let i = 0; i < 5; i++) {
+    //     // let playerSelection = prompt("rock, paper, or scissors?");
+    //     let computerSelection = computerPlay();
+    //     console.log(playRound(playerSelection, computerSelection));
+    // }
+}
+
+
+
 game()
