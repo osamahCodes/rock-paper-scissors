@@ -43,3 +43,13 @@ button{
     margin-top: 70px;
     margin-bottom: 70px;
 }
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    color:firebrick;
+    margin-top: 40px;
+
+}
